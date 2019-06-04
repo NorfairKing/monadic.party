@@ -1,0 +1,3 @@
+Understand: Why testing? How to test?
+Believe: Testing is a good idea, and does not have to be difficult.
+Do: Write some tests in Haskell.
