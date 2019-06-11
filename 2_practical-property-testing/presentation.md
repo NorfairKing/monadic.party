@@ -709,9 +709,3 @@ runClient :: ClientEnv -> ClientM a -> IO a
 - *validity*: https://github.com/NorfairKing/validity
   Pre-prepared property combinators
   Pre-prepared test suite combinators
-
-- *quickspec*: https://github.com/nick8325/quickspec
-  Property discovery (research)
-
-- *easyspec*: https://github.com/NorfairKing/easyspec
-  Practical property discovery (research)
