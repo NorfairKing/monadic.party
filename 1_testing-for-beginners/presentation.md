@@ -283,8 +283,6 @@ isSorted (x:xs) = all (>= x) xs && isSorted xs
 
 - Tests are simple:
 
-. . .
-
 
 ``` haskell
 type Test = IO () -- Some code to execute
@@ -297,10 +295,10 @@ type Property = a -> Test -- Sort-of
 
 ``` Haskell
 spec :: Spec
-spec = do
-  describe "myFunction" -- Scope
-    it "works" $        -- Sentence description
-      works myFunction  -- Assertion
+spec =
+  describe "myFunction" $ -- Scope
+    it "works" $          -- Sentence description
+      works myFunction    -- Assertion
 ```
 
 . . .
