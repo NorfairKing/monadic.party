@@ -16,6 +16,8 @@ Testing for (beginners in Haskell)
 
 Why do we test?
 
+. . .
+
 ```
 +--------------------------------------------+
 |          All programs                      |
@@ -46,9 +48,13 @@ The set of correct programs need not only contain one program.
 
 What is a test?
 
+. . .
+
 ``` haskell
 type Test = IO () -- Some code to execute
 ```
+
+. . .
 
 ``` haskell
 data TestResult = TestPasses | TestFails
@@ -62,6 +68,7 @@ doesItCrash :: Test -> IO TestResult
 -- Easy way to make code crash
 shouldBe :: (Show a, Eq a) => a -> a -> IO ()
 ```
+. . .
 
 ``` haskell
 main :: IO ()
@@ -76,6 +83,7 @@ main = hspec $
 
 When can you stop testing?
 
+. . .
 
 *Any code that could have been written, that passes the checks,
 and is still wrong, is to be written with a small enough
@@ -86,7 +94,7 @@ likelihood for you to be comfortable.*
 
 - Inherent Complexity
 - Length
-- Diffitulty
+- Difficulty
 
 
 # Example: reversing a list
@@ -98,6 +106,8 @@ reverse :: [a] -> [a]
 
 Example, write code that typechecks and
 passes these tests and is still wrong:
+
+. . .
 
 tests:
 
@@ -125,6 +135,8 @@ rev [x,y,z] = [z,y,x]
 rev ls = ls
 ```
 
+. . .
+
 Correct:
 
 ``` haskell
@@ -151,6 +163,8 @@ propertyTest :: (a -> IO ()) -> Test
 sort :: Ord a => [a] -> [a]
 ```
 
+. . .
+
 tests:
 
 ``` haskell
@@ -176,6 +190,8 @@ s [x] = [x]
 s [x,y,z] = [x,z,y]
 s ls = ls
 ```
+
+. . .
 
 Correct:
 
@@ -221,6 +237,8 @@ s [x, y, z] =
 s ls = ls
 ```
 
+. . .
+
 Correct:
 
 ``` haskell
@@ -259,13 +277,21 @@ isSorted (x:xs) = all (>= x) xs && isSorted xs
 
 # Overview
 
-- Tests are cool (see diagram)
+- Tests are cool (diagram)
+
+. . .
+
 - Tests are simple:
+
+. . .
+
 
 ``` haskell
 type Test = IO () -- Some code to execute
 type Property = a -> Test -- Sort-of
 ```
+
+. . .
 
 - Tests are simple in Haskell:
 
@@ -276,5 +302,7 @@ spec = do
     it "works" $        -- Sentence description
       works myFunction  -- Assertion
 ```
+
+. . .
 
 - Try breaking things
