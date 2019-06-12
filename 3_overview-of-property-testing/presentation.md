@@ -222,3 +222,6 @@ associative :: Gen a -> (a -> a -> a) -> Property
 
 # Validity-based testing
 
+- Free generators
+- Free shrinking
+- Cheap properties
