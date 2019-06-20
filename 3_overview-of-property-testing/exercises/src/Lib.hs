@@ -1,6 +1,7 @@
 module Lib where
 
-import QuickCheck
+import Hedgehog
+import Test.QuickCheck
 
 data IntOrString
   = I Int
