@@ -24,6 +24,7 @@ dependencies:
 - hspec
 - validity
 - aeson
+- path-io
 - genvalidity
 - genvalidity-hspec
 - genvalidity-hspec-aeson
