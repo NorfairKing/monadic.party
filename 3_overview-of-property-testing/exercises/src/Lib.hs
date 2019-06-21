@@ -2,8 +2,8 @@
 
 module Lib where
 
-import Hedgehog
 import Test.QuickCheck as Q
+import Test.Validity
 
 data IntOrString
   = I Int -- I :: Int -> IntOrString
@@ -35,3 +35,18 @@ data MyType =
 instance Arbitrary MyType where
   arbitrary = MyType <$> arbitrary <*> arbitrary
   shrink (MyType b r) = [MyType b' r' | (b', r') <- shrink (b, r)]
+
+data TTree
+  = TNil
+  | TBranch TTree TTree TTree
+  deriving (Show, Eq)
+
+instance Arbitrary TTree where
+  arbitrary =
+    sized $ \n ->
+      case n of
+        0 -> pure TNil
+        _ -> do
+          newSize <- upTo n
+          (a, b, c) <- genSplit3 newSize
+          TBranch <$> resize a arbitrary <*> resize b arbitrary <*> resize c arbitrary
